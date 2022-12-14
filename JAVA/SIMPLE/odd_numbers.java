@@ -1,3 +1,5 @@
+// Programme finds a number in provided array which occurs an odd number of times
+
 class Main {
 
     public class FindOdd {
