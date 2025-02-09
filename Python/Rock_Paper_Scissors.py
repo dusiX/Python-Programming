@@ -1,65 +1,83 @@
 import random
 
-print("--- Rock Paper Scissors Game ---")
+class Computer():
+    def __init__(self, score = 0):
+        choice_list = ["r", "p", "s"]
+        self.choice = random.choice(choice_list)
+        self.score = score
 
-rounds = ''
-choice_list = ["r", "p", "s"]
-computer_score, player_score = 0, 0
+class User():
+    def __init__(self, choice, score = 0):
+        self.choice = choice
+        self.score = score
 
-while type(rounds) != int:
-    try:
-        rounds = int(input("How many rounds would you like to play?\n"))
-    except:
-        print("Please provide a correct number.")
+class Game():
+    def __init__(self):
+        pass
 
-for i in range(rounds):
-    player_choice = input("Rock, paper or scissors [r/p/s]?\n")
+    def play(self):
+        rounds = ''
+        choice_list = ["r", "p", "s"]
 
-    while player_choice not in choice_list:
-        print("Please provide letter 'r' for rock, 'p' for paper or 's' for scissors.")
-        player_choice = input("Rock, paper or scissors [r/p/s]?\n")
-    
-    computer_choice = random.choice(choice_list)
+        print("--- Rock Paper Scissors Game ---")
 
-    print("You: " + player_choice + " | Computer: " + computer_choice)
+        while type(rounds) != int:
+            try:
+                rounds = int(input("How many rounds would you like to play?\n"))
+            except:
+                print("Please provide a correct number.")
+        
+        for i in range(rounds):
+            user = User(input("\nRock, paper or scissors [r/p/s]?\n"))
 
-    match(player_choice):
-        case("r"):
-            match(computer_choice):
+            while user.choice not in choice_list:
+                print("Please provide letter 'r' for rock, 'p' for paper or 's' for scissors.")
+                user.choice = input("Rock, paper or scissors [r/p/s]?\n")
+        
+            computer = Computer()
+
+            print("\nYou: " + user.choice + " | Computer: " + computer.choice)
+
+            match(user.choice):
                 case("r"):
-                    print("This round is a tie")
+                    match(computer.choice):
+                        case("r"):
+                            print("This round is a tie")
+                        case("p"):
+                            print("You lost this round!")
+                            computer.score += 1
+                        case("s"):
+                            print("You won this round!")
+                            user.score += 1
                 case("p"):
-                    print("You lost this round!")
-                    computer_score += 1
+                    match(computer.choice):
+                        case("r"):
+                            print("You won this round!")
+                            user.score += 1
+                        case("p"):
+                            print("This round is a tie")
+                        case("s"):
+                            print("You lost this round!")
+                            computer.score += 1
                 case("s"):
-                    print("You won this round!")
-                    player_score += 1
-        case("p"):
-            match(computer_choice):
-                case("r"):
-                    print("You won this round!")
-                    player_score += 1
-                case("p"):
-                    print("This round is a tie")
-                case("s"):
-                    print("You lost this round!")
-                    computer_score += 1
-        case("s"):
-            match(computer_choice):
-                case("r"):
-                    print("You lost this round!")
-                    computer_score += 1
-                case("p"):
-                    print("You won this round!")
-                    player_score += 1
-                case("s"):
-                    print("This round is a tie")
+                    match(computer.choice):
+                        case("r"):
+                            print("You lost this round!")
+                            computer.score += 1
+                        case("p"):
+                            print("You won this round!")
+                            user.score += 1
+                        case("s"):
+                            print("This round is a tie")
 
-print("[Game summary] Your points: " + str(player_score) + " | Computer points: " + str(computer_score))
+        print("\n[Game summary] Your points: " + str(user.score) + " | Computer points: " + str(computer.score))
 
-if player_score > computer_score:
-    print("You won.")
-elif player_score < computer_score:
-    print("Computer won.")
-else:
-    print("It was a tie.")
+        if user.score > computer.score:
+            print("You won.")
+        elif user.score < computer.score:
+            print("Computer won.")
+        else:
+            print("It was a tie.")
+
+game = Game()
+game.play()        
