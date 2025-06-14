@@ -2,10 +2,10 @@ Language Flashcards App (Polish ↔ Spanish)
 This is a desktop application built with Python and PyQt6, designed to help users practice and memorize Spanish vocabulary using a flashcard-style interface. The app integrates with an Excel file where words and their learning status are stored.
 
 📸 Screenshots
-- ![Main_Menu](https://github.com/user-attachments/assets/36fcef9f-6cd0-4d2b-87ff-1e2de1835e26)
-- ![Translate_Prompt](https://github.com/user-attachments/assets/ccc82fe9-74a5-4fd8-8f85-1f2d4dd04bed)
-- ![Result_Dialog](https://github.com/user-attachments/assets/7e2add4d-396d-4c8f-9d5a-7cbff1439b40)
-- ![Add_Word_Dialog](https://github.com/user-attachments/assets/c575e40c-cfd3-42c5-9209-a38b64e70e59)
+- Main Menu
+- Translate Prompt
+- Result Dialog
+- Add Word Dialog
 
 🧠 Features
 - Translate from Polish to Spanish and vice versa.
