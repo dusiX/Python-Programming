@@ -17,4 +17,4 @@ class RomanNumerals:
 
     @staticmethod
     def from_roman(roman_num : str) -> int:
-        return roman_num.count("M")*1000 + roman_num.count("D")*500 + roman_num.count("C")*100 + roman_num.count("L")*50 + roman_num.count("X")*10 + roman_num.count("V")*5 + roman_num.count("I")*1 - roman_num.count("CD")*200 - roman_num.count("XL")*20 - roman_num.count("IV")*2
+        return roman_num.count("M")*1000 + roman_num.count("D")*500 + roman_num.count("C")*100 + roman_num.count("L")*50 + roman_num.count("X")*10 + roman_num.count("V")*5 + roman_num.count("I")*1 - roman_num.count("CD")*200 - roman_num.count("CM")*200 - roman_num.count("XL")*20 - roman_num.count("XC")*20 - roman_num.count("IV")*2 - roman_num.count("IX")*2
